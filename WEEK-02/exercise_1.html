@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student rgistration form</title>
+</head>
+<body>
+    <div style="background-color:aqua">
+        <h1><i>Student Registration Form</i></h1>
+        <form>
+            <label><i>Student Name:</i></label>
+            <input type="text" placeholder="Enter Your Name">
+            <br>
+            <br>
+            <label><i>Roll Number:</i></label>
+            <input type="text" placeholder="Enter Your Roll Number">
+            <br>
+            <br>
+            <label><i>Email:</i></label>
+            <input type="email" placeholder="Enter Your Email">
+            <br>
+            <br>
+            <label><i>Phone Number:</i></label>
+            <input type="tel" placeholder="Enter Your Phone Number">
+            <br>
+            <br>
+
+            <label><i>Gender:</i></label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male"><i>Male</i></label>
+
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female"><i>Female</i></label>
+
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other"><i>Other</i></label>
+            <br>
+            <br>
+            <label for="branch"><i>Branch:</i></label>
+            <select id="branch" name="branch" required>
+                <option value="">---<i>Select Branch</i>---</option>
+                <option value="IT"><i>Information Technology</i></option>
+                <option value="CSE"><i>Computer Science</i></option>
+                <option value="MECH"><i>Mechanical Engineering</i></option>
+                <option value="CIVIL"><i>Civil Engineering</i></option>
+                <option value="ECE"><i>Electronics</i></option>
+            </select>
+            <br>
+            <br>
+            <button type="submit"><i>Submit</i></button>
+
+        </form>
+    </div>
+</body>
+</html>
