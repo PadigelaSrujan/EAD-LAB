@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text{
+            font-size:large;
+        }
+        .form{
+            border:solid black;
+            border-radius: 15px;
+            width:450px;
+            height:auto;
+            padding:10px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 5px 5px 5px ;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            margin-bottom: auto;
+        }
+        .button{
+            padding: 5px;
+        }
+        label{
+            font-size: large;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        h1{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+<body >
+    
+    <div style="background-color: aqua;" class="form">
+    <div>
+        <h1><i>Feedback Form</i></h1>
+    </div>
+        <form >
+            <label><i>Name:</i></label>
+            <input type="text" placeholder="Enter Your Name">
+            <br>
+            <br>
+             <label><i>Email:</i></label>
+            <input type="email" placeholder="Enter Your Email">
+            <br>
+            <br>
+             <label><i>Feedback Message:</i></label>
+             <br>
+             <br>
+            <textarea  class="text" placeholder=" Your Feedback"  id="msg" name="message" rows="5" columns="30"></textarea>
+            <br>
+            <br>
+            <label><i>How satisfied are you?</i></label>
+            <input type="radio" id="Satisfied" name="satisfy" value="Satisfied">
+            <label for="Satisfied"><i>Satisfied</i></label>
+            <input type="radio" id="Neutral" name="satisfy" value="Neutral">
+            <label for="Neutral"><i>Neutral</i></label>
+            <input type="radio" id="Unsatisfied" name="satisfy"  value="Unsatisfied">
+            <label for="Unsatisfied"><i>Unsatisfied</i></label>
+            <br>
+            <br>
+            <button class="button" type="submit"><i>Submit</i></button>
+
+        </form>
+    </div>
+</body>
+</html>

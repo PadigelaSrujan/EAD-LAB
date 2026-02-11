@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Time Table</title>
+
+<style>
+    body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: center;
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    table {
+        width: 70%;
+        margin: auto;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    tr:first-child {
+        background-color: aqua;
+    }
+
+    tr:nth-child(even) {
+        background-color: #ec0e0e;
+    }
+
+    tr:nth-child(odd):not(:first-child) {
+        background-color: #f3eded;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1><i>Time-Table</i></h1>
+</div>
+
+<table>
+    <tr>
+        <th>Time-Slot</th>
+        <th>9:10-10:10</th>
+        <th>10:10-11:10</th>
+        <th>11:10-11:15</th>
+        <th>11:15-12:15</th>
+        <th>12:15-1:00</th>
+        <th>1:00-2:00</th>
+        <th>2:00-3:00</th>
+        <th>3:00-3:05</th>
+        <th>3:05-4:05</th>
+    </tr>
+
+    <tr>
+        <th>Subject</th>
+        <td>PE-1</td>
+        <td>EEA</td>
+        <td>Break</td>
+        <td>PQT</td>
+        <td>Lunch</td>
+        <td>DBMS</td>
+        <td>Library</td>
+        <td>Break</td>
+        <td>Sports</td>
+    </tr>
+</table>
+
+</body>
+</html>
