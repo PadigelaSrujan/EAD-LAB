@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String processor</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #56ccf2, #2f80ed);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .analyser {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            width: 380px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        #inp {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border: none;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        #inp:focus {
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+            transform: scale(1.03);
+        }
+
+        #btn {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: none;
+            color: white;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            transition: all 0.3s ease;
+        }
+
+        #btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="analyser">
+        <input type="text" id="inp" placeholder="enter the string here" /><br>
+        <button id="btn">Process</button>
+        <div id="result1"></div>
+        <div id="result2"></div>
+        <div id="result3"></div>
+        <div id="result4"></div>
+
+
+    </div>
+    <script>
+        let button = document.getElementById("btn"); let input = document.getElementById("inp");
+        let result1 = document.getElementById("result1");
+        let result2 = document.getElementById("result2"); let result3 = document.getElementById("result3"); let result4 = document.getElementById("result4"); button.addEventListener("click", () => {
+            let str = input.value;
+            result1.innerHTML = `<h3>reverse of the string: ${(function () {
+                return str.split("").reverse().join("");
+            })()}</h3>`;
+            let vowels = () => {
+                let count = 0;
+                for (let i = 0; i < str.length; i++) {
+                    if ("aeiouAEIOU".includes(str[i])) {
+                        count++;
+                    }
+                }
+                return count;
+            };
+            result2.innerHTML = `<h3>number of vowels in the string: ${vowels()}</h3>`; result3.innerHTML = `<h3>longest word in the string: ${(function () {
+                let words = str.split(" "); let longest = words[0];
+                for (let i = 1; i < words.length; i++) {
+                    if (words[i].length > longest.length) {
+                        longest = words[i];
+                    }
+                }
+                return longest;
+            })()}</h3>`;
+            result4.innerHTML = `<h3>string in uppercase: ${str.toUpperCase()}</h3>`;
+        });
+    </script>
+</body>
+
+</html>

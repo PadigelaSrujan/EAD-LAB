@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Payroll System</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+}
+
+.container {
+    background: white;
+    padding: 45px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    width: 380px;
+    transition: 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #66a6ff;
+    box-shadow: 0 0 8px rgba(102, 166, 255, 0.5);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.result {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #ff4b2b;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Employee Salary Calculator</h2>
+    
+    <input type="text" id="name" placeholder="Enter Employee Name" />
+    <input type="number" id="basic" placeholder="Enter Basic Salary" />
+    
+    <button onclick="calculateSalary()">Calculate</button>
+    
+    <div class="result" id="output"></div>
+</div>
+
+<script>
+function Employee(name, basicSalary, hra = 2000, ta = 1000) {
+    this.name = name;
+    this.basicSalary = basicSalary;
+    this.hra = hra;
+    this.ta = ta;
+
+    this.calculateNetSalary = function () {
+        let grossSalary = this.basicSalary + this.hra + this.ta;
+        let tax = grossSalary * 0.1;
+        let netSalary = grossSalary - tax;
+
+        return {
+            grossSalary: grossSalary,
+            tax: tax,
+            netSalary: netSalary
+        };
+    };
+}
+
+function calculateSalary() {
+    let name = document.getElementById("name").value.trim();
+    let basic = parseFloat(document.getElementById("basic").value);
+
+    if (name === "" || isNaN(basic) || basic <= 0) {
+        document.getElementById("output").innerHTML =
+            "Please enter valid details.";
+        return;
+    }
+
+    let emp = new Employee(name, basic);
+    let salaryDetails = emp.calculateNetSalary();
+
+    document.getElementById("output").innerHTML = `
+        Employee Name: <b>${emp.name}</b><br>
+        Gross Salary: Rs. ${salaryDetails.grossSalary.toFixed(2)} <br>
+        Tax (10%): Rs. ${salaryDetails.tax.toFixed(2)} <br>
+        Net Salary: Rs. ${salaryDetails.netSalary.toFixed(2)}
+    `;
+}
+</script>
+
+</body>
+</html>
